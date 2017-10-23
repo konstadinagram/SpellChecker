@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
-/** Eíá ðñüãñáììá ðïõ ï ÷ñÞóôçò äßíåé Ýíá êåßìåíï áðåñéïñéóôÞò ÷ùñéôçêüôçôáò, êáé áõôü åêôõðþíåôáé óôçí ïèüíç */
+/** ena programma pou o xrhsths dinei ena keimeno aperiorisths xwritikothtas kai auto ektupwnetai sthn othonh */
 
 public class askish2 {
  public static void main( String[] args){
