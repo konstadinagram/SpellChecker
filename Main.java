@@ -8,11 +8,11 @@ public class Main {
 		int counter_0=0;
 		for(int i=0;i<t.length();i++) {
 			int j=0;
-			if(Character.isWhitespace(t.charAt(i))){
+			if(Character.isWhitespace(t.charAt(i)))
 			counter_0++; }
 		}
 	        for (int i=0; i<location0.length; i++) {
-		    if(location0.contains(i)==false) {
+		    if(location0.contains(i)==false)
 		        i=i+1; }
 			else 
 			word.add(t.charAt(i));
@@ -23,8 +23,20 @@ public class Main {
 		//System.out.println(parts[0]);
 		//System.out.println(parts[1]);
 	}
-	public static void main(String args[]) {
-		System.out.println("hi");
-		s();
+		
+    public static void main( String[] args){
+	    /**h main stin opoia o xrhsths dinei ena keimeno aperiorisths xwritikothtas kai auto ektupwnetai sthn othonh */
+      try {
+        System.out.println("Please write a text");
+        Scanner input = new Scanner(System.in);
+        String text = input.nextLine();
+        System.out.println("Your text is: ");
+        System.out.println(text);
+}    catch(InputMismatchException e){
+	System.err.println("Please try again");
+}
+    s();
+}
+		
 	}
 }
