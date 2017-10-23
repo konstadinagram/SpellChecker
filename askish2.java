@@ -1,18 +1,18 @@
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
-/** Eνα πρόγραμμα που ο χρήστης δίνει ένα κείμενο απεριοριστής χωριτηκότητας, και αυτό εκτυπώνεται στην οθόνη */
+/** EΓ­Γ΅ Γ°Γ±ΓΌΓ£Γ±Γ΅Γ¬Γ¬Γ΅ Γ°Γ―Γµ Γ― Γ·Γ±ΓΓ³Γ΄Γ§Γ² Γ¤ΓΓ­Γ¥Γ© ΓΓ­Γ΅ ΓªΓ¥ΓΓ¬Γ¥Γ­Γ― Γ΅Γ°Γ¥Γ±Γ©Γ―Γ±Γ©Γ³Γ΄ΓΓ² Γ·ΓΉΓ±Γ©Γ΄Γ§ΓªΓΌΓ΄Γ§Γ΄Γ΅Γ², ΓªΓ΅Γ© Γ΅ΓµΓ΄ΓΌ Γ¥ΓªΓ΄ΓµΓ°ΓΎΓ­Γ¥Γ΄Γ΅Γ© Γ³Γ΄Γ§Γ­ Γ―Γ¨ΓΌΓ­Γ§ */
 
 public class askish2 {
  public static void main( String[] args){
   try {
-    System.out.println("dwse keimeno");
+    System.out.println("Please write a text");
     Scanner input = new Scanner(System.in);
     String text = input.nextLine();
-    System.out.println("emfanise to keimeno ");
+    System.out.println("Your text is: ");
     System.out.println(text);
 } catch(InputMismatchException e){
-	System.err.println("ksanadwse keimeno");
+	System.err.println("Please try again");
 }
 }
 }
