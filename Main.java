@@ -4,12 +4,18 @@ public class Main {
 		Scanner input=new Scanner(System.in);
 		String t=input.nextLine();
 		ArrayList <String> te=new ArrayList <String>();
+	        ArrayList <Integer> location0 = new ArrayList <Integer>();
 		int counter_0=0;
 		for(int i=0;i<t.length();i++) {
 			int j=0;
 			if(Character.isWhitespace(t.charAt(i))){
 			counter_0++; }
 		}
+	        for (int i=0; i<location0.length; i++) {
+		    if(location0.contains(i)==false) {
+		        i=i+1; }
+			else 
+			word.add(t.charAt(i));
 		System.out.println(counter_0);
 		String[] parts = t.split(" ");
 		String part1 = parts[0];
