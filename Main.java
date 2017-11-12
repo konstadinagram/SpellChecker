@@ -1,8 +1,13 @@
 import java.util.*;
 public class Main {
-    public static void s() {
-		Scanner input=new Scanner(System.in);
-		String t=input.nextLine();
+    public static void main(String args[]) {
+	     System.out.println("Please write a text");
+             Scanner input = new Scanner(System.in);
+	     try { 
+		 String text = input.nextLine();    
+            } catch(InputMismatchException e){
+	    System.err.println("Please try again"); 
+	     }
 		ArrayList <String> te=new ArrayList <String>();
 	        ArrayList <Integer> location0 = new ArrayList <Integer>();
 		int counter_0=0;
@@ -23,18 +28,8 @@ public class Main {
 		//System.out.println(parts[0]);
 		//System.out.println(parts[1]);
 	}
-		
-    public static void main( String[] args){
-	    /**h main stin opoia o xrhsths dinei ena keimeno aperiorisths xwritikothtas kai auto ektupwnetai sthn othonh */
-      try {
-        System.out.println("Please write a text");
-        Scanner input = new Scanner(System.in);
-        String text = input.nextLine();
-        System.out.println("Your text is: ");
-        System.out.println(text);
-}    catch(InputMismatchException e){
-	System.err.println("Please try again");
-}
+	
+     
     s();
 }
 		
