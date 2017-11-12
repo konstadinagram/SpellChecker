@@ -1,9 +1,9 @@
 import java.util.Scanner;
 //* this method separates the sentence*/
+ 
+private static Scanner input;
 
 public static splitText() {
-	
-    private static Scanner input;
         Scanner input = new Scanner ( System.in );
 	System.out.println(" Enter the text: ");
 	String textSplit = input.nextLine();
