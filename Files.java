@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Files {
 	private Scanner x;
 
-/* Μέθοδος η οποία ανοίγει το αρχείο **/
+/* This method opens one File **/
 	public void OpenFile() {
 		try {
 			x = new Scanner(new File("C:\\el_GR.dic"));
@@ -13,7 +13,7 @@ public class Files {
 		}
 	}
 
-/* Μέθοδος η οποία διαβάζει το αρχείο **/
+/* This method reads the file from OpenFile **/
 	public void ReadFile() {
 		while(x.hasNext()) {
 			String a = x.next();
@@ -24,11 +24,11 @@ public class Files {
 		}
 	}
 
-/* Μέθοδος η οποία κλείνει το αρχείο **/
+/* This method close the previous File **/
 	public void CloseFile() {
 		x.close();
 	}
-/* Μέθοδος εκτύπωσης λαθών **/
+/* This method prints the wrong words **/
 	public static void Mistakes(String word) {
 			System.out.println("The word" +word+ "is wrong");
 		}
