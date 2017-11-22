@@ -42,7 +42,15 @@ public class Main{
             }
 
         }while (continueLoop);
-
 	}
+	
+	public static void splitText(String text) { 
+	    text=text.replaceAll("[.!?;]$","");
+	    text = text.replaceAll("[,]"," ");
+	    String[] b = text.split(" +");
+	    System.out.println("Number of words: " + b.length);
+            for(int i = 0; i < b.length; i++) {
+                System.out.println(i + b[i]);
+            }
 
 }
