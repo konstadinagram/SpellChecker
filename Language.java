@@ -69,19 +69,19 @@ public class Language {
    * @param choice
   **/
   private void initialisePath(int choice) {
-    //if(choice == 1 ) {
-	  current_path = Paths.get("C:\\Users\\User\\eclipse-workspace\\SpellChecker2\\el_GR.dic");
-	//} else if (choice == 2) {
-	 // current_path = Paths.get("C:\\Users\\User\\eclipse-workspace\\SpellChecker2\\english3.txt");
-	//} else if (choice == 3) {
-	//  current_path = Paths.get("C:\\Users\\User\\eclipse-workspace\\SpellChecker2\\francais.txt");
-	//} else if (choice == 4) {	
-	 // current_path = Paths.get("C:\\Users\\User\\eclipse-workspace\\SpellChecker2\\deutsch.txt");
-	//} else if (choice == 5) {	
-	//  current_path = Paths.get("C:\\Users\\User\\eclipse-workspace\\SpellChecker2\\italiano.txt");
-	//} else if (choice == 6) {	
-	//  current_path = Paths.get("C:\\Users\\User\\eclipse-workspace\\SpellChecker2\\espanol.txt");
-	//}
+    if(choice == 1 ) {
+      current_path = Paths.get("C:\\Users\\User\\eclipse-workspace\\SpellChecker2\\el_GR.dic");
+    } else if (choice == 2) {
+      current_path = Paths.get("C:\\Users\\User\\eclipse-workspace\\SpellChecker2\\english3.txt");
+    } else if (choice == 3) {
+      current_path = Paths.get("C:\\Users\\User\\eclipse-workspace\\SpellChecker2\\francais.txt");
+    } else if (choice == 4) {	
+      current_path = Paths.get("C:\\Users\\User\\eclipse-workspace\\SpellChecker2\\deutsch.txt");
+    } else if (choice == 5) {	
+      current_path = Paths.get("C:\\Users\\User\\eclipse-workspace\\SpellChecker2\\italiano.txt");
+    } else if (choice == 6) {	
+      current_path = Paths.get("C:\\Users\\User\\eclipse-workspace\\SpellChecker2\\espanol.txt");
+    }
   }
   public String getText() {
     return text;
