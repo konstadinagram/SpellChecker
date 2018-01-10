@@ -35,8 +35,8 @@ public class Translator {
   private static final String CLIENT_ID = "FREE_TRIAL_ACCOUNT";
   private static final String CLIENT_SECRET = "PUBLIC_SECRET";
   private static final String ENDPOINT = "http://api.whatsmate.net/v1/translation/translate";
-  private final String[] LANGUAGES_TR = {"Ελληνικά", "English",
-		    "Francais", "Deutsch", "Italiano", "Espanol"};
+  private final String[] LANGUAGES_TR = {"el", "en",
+		    "fr", "de", "it", "es"};
   
 
   public Translator(int languageNumber , int translationLanguageNumber , String text) {
