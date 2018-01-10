@@ -3,17 +3,13 @@ SYNOPSIS
 --------
 This program finds the spelling mistakes in a text.The user first chooses the language and then types the text he wants to correct.
 @Version 1.0.0 English and Greek language supported
+@Version 2.0.0 Added Italian,Spanish,German,French
+@Version 3.0.0 Added Google Translation,GUI and Text Correction
 
--------
-EXAMPLE
--------
-System:Παρακαλώ, Πατήστε 1 για Ελληνικά
-System:Please, Press 2 for English
-User types 2...
-System:Please insert text for correction.
-User types:Helo!My name is Suzan ans I am from Germany!
-System:The word Helo is wrong.
-System:The word ans is wrong.
+--------
+SYNOPSIS
+--------
+This program lets you correct a sentence in 6 language and then translate it, or correct a text file by following the instructions of the Graphic User Interface.
 
 ------------
 CONTRIBUTORS
