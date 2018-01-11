@@ -41,6 +41,10 @@ public class Language {
   private final char[] GREEK_ALPHABET = "αβγδεζηθικλμνξοπρστυφχψω".toCharArray();
   private final char[] LATIN_ALPHABET = "abcdefgijklmnopqrstuvwxyz".toCharArray();
   private char[] currentAlphabet;
+  private final String[] GR_VOWELS = {"α","ε","αι","ι","η","οι","ει","ο","ω","ου",
+		  "άι","αϊ","αΐ","ά","έ","αί","ί","ή","οί","εί","ό","ώ","ού"};
+  private final String[] LA_VOWELS = {"a","e","i","o","u"};
+  private String[] currentVowels;
   private Path current_path;
   private File file;
   
@@ -59,8 +63,10 @@ public class Language {
   private void chooseAlphabet(int choice) {
     if ( choice == 1) {
 	  this.currentAlphabet = GREEK_ALPHABET;
+	  this.currentVowels = GR_VOWELS;
 	} else {
 	  this.currentAlphabet = LATIN_ALPHABET;
+	  this.currentVowels = GR_VOWELS;
 	}
 }
 
@@ -190,13 +196,13 @@ public class Language {
    * This method adds all the suggestions for each category of a misspelled
    * word in an ArrayList
    * @param String wrong Word
-   * @see a Window with the Suggestions available
    * @return StringBuilder as a String
   **/		  
   private ArrayList<String> addAllSuggestions(String wrongWord) {
     totalSuggestions.addAll(charisAppended(wrongWord));
     totalSuggestions.addAll(charisMissing(wrongWord));
     totalSuggestions.addAll(charsareSwapped(wrongWord));
+    totalSuggestions.addAll(vowelsareWrong(wrongWord));
     return totalSuggestions;
   }
   
@@ -204,7 +210,6 @@ public class Language {
    * This method returns all the suggestions for a misspelled
    * word for appended characters as an ArrayList
    * @param String wrong Word
-   * @see a Window with the Suggestions available
    * @return ArrayList suggestionsAppended
   **/	
   private ArrayList<String> charisAppended(String wrongWord) { 
@@ -226,7 +231,6 @@ public class Language {
    * This method returns all the suggestions for a misspelled
    * word for missing characters as an ArrayList
    * @param String wrong Word
-   * @see a Window with the Suggestions available
    * @return ArrayList suggestionsMissing
   **/	
   private ArrayList<String> charisMissing(String wrongWord) {   
@@ -254,7 +258,6 @@ public class Language {
    * This method returns all the suggestions for a misspelled
    * word for swapped characters as an ArrayList
    * @param String wrong Word
-   * @see a Window with the Suggestions available
    * @return ArrayList suggestionsSwapped
   **/	
   private ArrayList<String> charsareSwapped(String wrongWord) {   
@@ -269,5 +272,24 @@ public class Language {
 	  }
 	}
   return suggestionsSwapped ;
+  }
+	
+ /**
+   * This method returns all the suggestions for a misspelled
+   * word for wrong vowels as an ArrayList
+   * @param String wrong Word
+   * @return ArrayList suggestionsSwapped
+  **/			
+  private ArrayList<String> vowelsareWrong(String wrongWord) {  
+    ArrayList<String> suggestionsVowelsWrong = new ArrayList<String>();
+    String[] wrongWordArray = wrongWord.split("");
+    for (int i = 0; i < wrongWordArray.length; i++) {
+      for (String vowel : currentVowels) {
+        if (dictionary.contains(wrongWord.replaceFirst(wrongWordArray[i], vowel))) {
+          suggestionsVowelsWrong.add(wrongWord.replaceFirst(wrongWordArray[i], vowel));
+        }
+      }
+    }
+    return suggestionsVowelsWrong;
   }
 }
