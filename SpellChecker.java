@@ -136,7 +136,7 @@ public class SpellChecker extends JFrame {
 	mntmAbout.addActionListener(new ActionListener() {
 	  public void actionPerformed(ActionEvent e) {
 	    JOptionPane.showMessageDialog(null,"Check spelling "
-	      + "mistakes in 9 Languages", "About Us", JOptionPane.INFORMATION_MESSAGE);
+	      + "mistakes in 6 Languages", "About Us", JOptionPane.INFORMATION_MESSAGE);
 	  }
 	});
 	
@@ -151,19 +151,15 @@ public class SpellChecker extends JFrame {
     final JPanel panelFile = new JPanel();
     contentPane.add(panelFile , "name_34573075047060");
     panelFile.setLayout(null);
-	final JPanel panelText = new JPanel();
+    final JPanel panelText = new JPanel();
     contentPane.add(panelText, "name_516559441566739");
 	panelText.setLayout(null);
     final JComboBox<String> comboBox = new JComboBox<String>();
-	comboBox.setModel(new DefaultComboBoxModel<String>(LANGUAGES_AV));
+    comboBox.setMaximumRowCount(6);
+    comboBox.setModel(new DefaultComboBoxModel<String>(LANGUAGES_AV));
     comboBox.setSelectedIndex(0);
-	comboBox.setBounds(212, 79, 150, 20);
-    panelChoice.add(comboBox);
-	comboBox.addActionListener(new ActionListener() {
-	  public void actionPerformed(ActionEvent e) {
-	    isSelectedLanguageNumber(comboBox.getSelectedIndex()+1);
-	  }
-	});	  	  
+    comboBox.setBounds(212, 79, 150, 20);
+    panelChoice.add(comboBox);	  	  
     JLabel lblWelcomeToSpellChecker = 
 	  DefaultComponentFactory.getInstance().createTitle("Welcome to SpellChecker!");
     lblWelcomeToSpellChecker.setFont(new Font("Sylfaen", Font.BOLD, 17));
@@ -210,7 +206,7 @@ public class SpellChecker extends JFrame {
 		  if (JFileChooser.APPROVE_SELECTION != null) {
 		    FilesManagement fileM = new FilesManagement(file,file.getAbsolutePath());
 		    text = fileM.fileAcceptance();
-		    language = new Language(text,selectedLanguageNumber);
+		    language = new Language(text,comboBox.getSelectedIndex()+1);
 		    language.readDictionary();
 		    language.spellChecker(language.textToArray(text));
 		  }
@@ -250,6 +246,7 @@ public class SpellChecker extends JFrame {
     lblNewLabel.setBounds(10, 88, 217, 23);
     panelTranslation.add(lblNewLabel); 
     JComboBox<String> comboBoxTranslation = new JComboBox<String>();
+    comboBoxTranslation.setMaximumRowCount(6);
     comboBoxTranslation.setModel(new DefaultComboBoxModel<String>(LANGUAGES_AV));
     comboBoxTranslation.setSelectedIndex(0);
     comboBoxTranslation.setBounds(237, 89, 155, 20);
@@ -257,7 +254,7 @@ public class SpellChecker extends JFrame {
     btnEnter.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
           try {
-            language = new Language(txtrPleaseInsertYour.getText(),selectedLanguageNumber);
+            language = new Language(txtrPleaseInsertYour.getText(),comboBox.getSelectedIndex()+1);
             language.readDictionary();
             boolean corrected = language.spellChecker(language.textToArray(
             txtrPleaseInsertYour.getText()));
@@ -292,9 +289,9 @@ public class SpellChecker extends JFrame {
 	});
     comboBoxTranslation.addActionListener(new ActionListener() {
     	public void actionPerformed(ActionEvent arg0) {
-    	  if (selectedLanguageNumber != selectedTranslationLanguageNumber) {
-    	    Translator translator = new Translator(selectedLanguageNumber,
-    	    		selectedTranslationLanguageNumber,txtrPleaseInsertYour.getText());
+    	  if (comboBox.getSelectedIndex()+1 != comboBoxTranslation.getSelectedIndex()+1) {
+    	    Translator translator = new Translator(comboBox.getSelectedIndex()+1,
+    	    		comboBoxTranslation.getSelectedIndex()+1,txtrPleaseInsertYour.getText());
     	  } else {
     	    JOptionPane.showMessageDialog(null, "You cannot translate in the same " 
     	    	    +" language.Please choose a different one.","Error" , JOptionPane.ERROR_MESSAGE);
@@ -305,13 +302,5 @@ public class SpellChecker extends JFrame {
 
   public void setText(String text) {
     this.text = text;
-  }
-  
-  public void isSelectedLanguageNumber(int selectedLanguageNumber) {
-    this.selectedLanguageNumber = selectedLanguageNumber;
-  }
-  
-  public void isSelectedTranslationLanguageNumber(int selectedTranslationLanguageNumber) {
-    this.selectedTranslationLanguageNumber = selectedTranslationLanguageNumber;
   }
 }
