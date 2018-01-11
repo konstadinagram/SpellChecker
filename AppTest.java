@@ -5,31 +5,32 @@ import java.util.Scanner;
 import org.junit.Test;
 
 public class AppTest {
-
 	@Test
 	public void test() {
-		Scanner input = new Scanner(System.in);
-	    System.out.println("Παρακαλώ, Πατήστε 1 για Ελληνικά");
-	    System.out.println("Please, Press 2 for English");
-	    int choice = input.nextInt();
-	    assert (choice == 1) || (choice == 2);
-	    if (choice == 1) {
-	      Greek gr = new Greek();
-	      gr.setText("Καλοιμερα είμαι η Κωσταντίνα και είμαι καλά");
-	      gr.readFileAndSplitText(gr.getFile());
-	      gr.spellChecker();
-	      gr.setText("Καλησπέρα");
-	      gr.readFileAndSplitText(gr.getFile());
-	      gr.spellChecker();
-	    } else if (choice == 2) {
-	      English en = new English();
-	      en.setText("Helo my name is Susan.I'm forteen and I life in Germany.My hobbys are go to discos,sometimes I hear music in the radio.In the summer I go bathing in a lake.I haven't any brothers or sisters.We take busses to scool.I visit year nain at my school.My birthday is on Friday.I hope I will buy a new guitar.");
-	      en.readFileAndSplitText(en.getFile());
-	      en.spellChecker();
-	      en.setText("Day");
-	      en.readFileAndSplitText(en.getFile());
-	      en.spellChecker();
-	    }
-	}
+	public class AppTest extends TestCase {
 
+	String gr_sentence = "Καλησπέρα παιδιά τι κάναιτε;";
+	String en_sentence = "Goodmorning sunshine!I em very glad to see yoo today";
+	String fr_sentence = "Bonjour mon diey!Tu es magnifique";
+	String de_sentence = "sprechen Sie Deutsch?";
+  
+    /**
+     *Run the tests
+     *@Test
+     */
+    public void Test ()
+    {
+        Language lgr = new Language(gr_sentence,1);
+        lgr.readDictionary();
+	System.out.println(lgr.spellChecker(lgr.textToArray(gr_sentence)));
+        Language len = new Language(en_sentence,2);
+        len.readDictionary(len.getDictionary());
+	System.out.printlnlen.spellChecker(len.textToArray(en_sentence)));
+        Language lfr = new Language(fr_sentence,3); 
+        lfr.readDictionary(lfr.getDictionary());
+	System.out.println(lfr.spellChecker(lfr.textToArray(fr_sentence)));
+        Language lde = new Language(de_sentence,4);
+        lde.readDictionary(lde.getDictionary());
+        System.out.println(lde.spellChecker(lde.textToArray(de_sentence)));
+    }
 }
